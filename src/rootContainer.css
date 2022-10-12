@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+
+.rootContainer {
+  font-family: "Nunito Sans", sans-serif;
+  width: 30vw;
+  height: 90vh;
+  display: flex;
+  border-radius: 17px;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(255, 209, 67, 1) 0%,
+    rgba(255, 145, 83, 1) 90%
+  );
+}

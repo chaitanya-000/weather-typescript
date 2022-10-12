@@ -1,0 +1,64 @@
+.container {
+  height: 30%;
+  /* border: 2px solid red; */
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Nunito Sans", sans-serif;
+}
+.container__form {
+  padding-left: 12px;
+  width: 90%;
+  height: 20%;
+  background-color: rgba(128, 128, 128, 0.312);
+  /* background-color: red; */
+  /* border: 2px solid black; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 20px;
+  color: white;
+  border-radius: 10px;
+}
+.container__form:hover {
+  background-color: rgb(249, 249, 249);
+  color: black;
+}
+
+.container__input {
+  font-size: 25px;
+  padding-left: 18px;
+  color: white;
+  width: 90%;
+  height: 60%;
+  background-color: transparent;
+  border-radius: 10px;
+  border: none;
+  font-family: "Nunito Sans", sans-serif;
+}
+.container__input:hover {
+  color: black;
+}
+
+.container__icon {
+  height: 75%;
+  width: inherit;
+  /* background: red; */
+}
+
+.container__form :focus {
+  color: black;
+  /* color: black; */
+  /* opacity: 30%; */
+  /* background-color: grey; */
+  outline: none;
+  border: none;
+}
+.container__icon :active {
+  transform: scale(1.3);
+}
+
+.container__cityName h1 {
+  font-size: 100%;
+}
