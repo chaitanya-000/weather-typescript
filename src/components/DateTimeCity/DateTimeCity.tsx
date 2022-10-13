@@ -1,15 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, createContext } from "react";
 import "./DateTimeCity.css";
 import SearchIcon from "@mui/icons-material/Search";
+import { Context } from "../../RootContainer";
 
 const DateTimeCity: React.FC = () => {
+  const { cityName, setCityName, apiData, setApiData } = useContext(Context);
   const cityRef = React.useRef<HTMLInputElement>(null);
-  const [cityName, setCityName] = useState<undefined | string>("City name ");
-  const [apiData, setApiData] = useState([]);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     const inputCityName = cityRef?.current?.value;
     setCityName(inputCityName);
 
