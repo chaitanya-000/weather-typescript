@@ -3,6 +3,8 @@ import './DateTimeCity.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { Context } from '../../RootContainer';
 import { useForm } from 'react-hook-form';
+import { useQuery } from 'react-query';
+import axios from 'axios';
 
 type Inputs = {
 	city: string;
@@ -20,10 +22,21 @@ const DateTimeCity: React.FC = () => {
 	} = useForm<Inputs>();
 
 	//react-query
+	async function fetchPosts() {
+		const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=698a70a0d4734a6f8dc9a87e0aed884a`);
+		console.log(data);
+		return data;
+	}
+	const { data, isError, error, refetch } = useQuery('weather', fetchPosts, { enabled: false });
 
+	if (error) {
+		return <h1>error</h1>;
+	}
+	fetchPosts();
 	const onSubmit = (data: { city: string }) => {
 		console.log(data);
 		setCityName(data.city);
+		refetch();
 	};
 
 	return (
