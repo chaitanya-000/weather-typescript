@@ -11,11 +11,7 @@ const DateTimeCity: React.FC = () => {
     event.preventDefault();
     const inputCityName = cityRef?.current?.value;
     setCityName(inputCityName);
-
-    navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position.coords.latitude);
-      console.log(position.coords.longitude);
-    });
+    console.log("This is the submit button");
   };
 
   return (
