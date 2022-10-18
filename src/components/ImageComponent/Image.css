@@ -1,7 +1,11 @@
 .ImageContainer {
-  margin-top: 0.6vh;
-  width: 90%;
-  height: 46%;
-  border: 2px solid green;
-  background-color: green;
+	margin-top: 0.6vh;
+	width: 90%;
+	height: 46%;
+	/* border: 2px solid green; */
+	/* background-color: green; */
+}
+.ImageContainer--image {
+	width: 100%;
+	height: 100%;
 }

@@ -1,8 +1,22 @@
-import React from "react";
-import "./Image.css";
+import axios from 'axios';
+import { useContext, useState } from 'react';
+import { Context } from '../../RootContainer';
+
+import './Image.css';
 
 const Image = () => {
-  return <div className="ImageContainer">Image</div>;
+	//context
+	const { cityName, setCityName, apiData, setApiData } = useContext(Context);
+
+	return (
+		<div className='ImageContainer'>
+			<img
+				className='ImageContainer--image'
+				src='https://source.unsplash.com/random/?city,night'
+				alt=''
+			/>
+		</div>
+	);
 };
 
 export default Image;

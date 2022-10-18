@@ -25,7 +25,7 @@ const DateTimeCity: React.FC = () => {
 	const fetchData = () => {
 		axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${inputRef.current?.value}&appid=698a70a0d4734a6f8dc9a87e0aed884a`).then((data) => setApiData(data.data));
 	};
-	console.log('apiData', apiData);
+	// console.log('apiData', apiData);
 	const { data, refetch, isFetching, isLoading, isError, error, isSuccess } = useQuery('weather', fetchData, { enabled: false });
 
 	if (isLoading) {
@@ -56,7 +56,7 @@ const DateTimeCity: React.FC = () => {
 					ref={inputRef}
 					type='search'
 					className='container__input'
-					placeholder='Eg. Mumbai....'
+					placeholder='Enter city....'
 					required
 				/>
 			</form>

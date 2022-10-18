@@ -1,6 +1,54 @@
 .weatherInfoContainer {
-  margin-top: 0.6%;
-  width: 90%;
-  height: 20%;
-  border: 2px solid black;
+	margin-top: 5%;
+	width: 90%;
+	height: 20%;
+	/* border: 2px solid black; */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.weatherInfoContainer--sunset {
+	width: 28%;
+	height: 100%;
+	/* background-color: red; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.weatherInfoContainer--sunset img {
+	margin-top: 4%;
+	width: 70%;
+	height: 50%;
+}
+.weatherInfoContainer--sunset div {
+	font-size: 3vh;
+}
+.weatherInfoContainer--currentTemp {
+	width: 28%;
+	height: 100%;
+	/* background-color: red; */
+	font-size: 5vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.weatherInfoContainer-tempMin {
+	width: 28%;
+	height: 100%;
+	/* background-color: red; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.weatherInfoContainer-tempMin img {
+	width: 80%;
+	height: 60%;
+}
+.weatherInfoContainer-tempMin div {
+	font-size: 4vh;
+	/* background-color: antiquewhite; */
 }
