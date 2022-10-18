@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import './DateTimeCity.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { Context } from '../../RootContainer';
@@ -6,39 +6,36 @@ import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
-type Inputs = {
-	city: string;
-};
-
+//Component/////////////////////////////////
 const DateTimeCity: React.FC = () => {
 	//context
 	const { cityName, setCityName, apiData, setApiData } = useContext(Context);
 
-	//react-form-hook library
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm<Inputs>();
+	//ref
+	const inputRef = useRef<HTMLInputElement>(null);
 
-	//react-query
-	async function fetchPosts() {
-		const data = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=698a70a0d4734a6f8dc9a87e0aed884a`);
-		console.log(data);
-		return data;
-	}
-	const { data, isError, error, refetch } = useQuery('weather', fetchPosts, { enabled: false });
-
-	if (error) {
-		return <h1>error</h1>;
-	}
-	fetchPosts();
-	const onSubmit = (data: { city: string }) => {
-		console.log(data);
-		setCityName(data.city);
+	//onSubmit
+	const handleSubmit = () => {
+		// console.log('enter pressed');
 		refetch();
+		setCityName(inputRef.current?.value);
 	};
 
+	//react-query
+	const fetchData = () => {
+		axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${inputRef.current?.value}&appid=698a70a0d4734a6f8dc9a87e0aed884a`).then((data) => setApiData(data.data));
+	};
+	console.log('apiData', apiData);
+	const { data, refetch, isFetching, isLoading, isError, error, isSuccess } = useQuery('weather', fetchData, { enabled: false });
+
+	if (isLoading) {
+		return <h1>loading.....</h1>;
+	}
+	if (isFetching) {
+		return <h1>Fetching data.....</h1>;
+	}
+
+	//component TSX
 	return (
 		<div className='container'>
 			<h2 className='container__day'>
@@ -52,15 +49,15 @@ const DateTimeCity: React.FC = () => {
 			<form
 				action='#'
 				className='container__form'
-				onSubmit={handleSubmit(onSubmit)}
+				onSubmit={handleSubmit}
 			>
 				<SearchIcon className='container__icon' />
 				<input
-					// name="city"
+					ref={inputRef}
 					type='search'
 					className='container__input'
 					placeholder='Eg. Mumbai....'
-					{...register('city')}
+					required
 				/>
 			</form>
 
