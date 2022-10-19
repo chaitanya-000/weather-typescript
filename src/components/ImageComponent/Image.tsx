@@ -7,12 +7,11 @@ import './Image.css';
 const Image = () => {
 	//context
 	const { cityName, setCityName, apiData, setApiData } = useContext(Context);
-
 	return (
 		<div className='ImageContainer'>
 			<img
 				className='ImageContainer--image'
-				src='https://source.unsplash.com/random/?city,night'
+				src={`https://source.unsplash.com/random/?${cityName}`}
 				alt=''
 			/>
 		</div>

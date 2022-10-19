@@ -7,6 +7,24 @@ const WeatherInfo = () => {
 	const { cityName, setCityName, apiData, setApiData } = useContext(Context);
 	console.log(apiData);
 
+	const sunset = new Date(apiData?.sys?.sunset * 1000).toLocaleTimeString('en-US', {
+		hour: 'numeric',
+		minute: 'numeric',
+		hour12: true,
+	});
+	// console.log(sunset);
+
+	const temp = Math.round(apiData?.main?.temp);
+
+	const minTemp = apiData && apiData.weather && apiData.weather[0] && apiData.weather[0].description;
+	console.log(minTemp);
+
+	navigator.geolocation.getCurrentPosition((position) => {
+		let lat = position.coords.latitude;
+		let long = position.coords.longitude;
+		console.log(lat);
+		console.log(long);
+	});
 	return (
 		<div className='weatherInfoContainer'>
 			<div className='weatherInfoContainer--sunset'>
@@ -14,19 +32,13 @@ const WeatherInfo = () => {
 					src='https://cdn-icons-png.flaticon.com/512/2294/2294957.png'
 					alt=''
 				/>
-				<div>06:45Pm</div>
+				<div>{sunset}</div>
 			</div>
+
+			<div className='weatherInfoContainer-tempMin'>{minTemp}</div>
 
 			<div className='weatherInfoContainer--currentTemp'>
-				<div>16°</div>
-			</div>
-
-			<div className='weatherInfoContainer-tempMin'>
-				<img
-					src='https://cdn-icons-png.flaticon.com/512/2322/2322701.png'
-					alt=''
-				/>
-				<div>4°C</div>
+				<div>{temp}°C</div>
 			</div>
 		</div>
 	);

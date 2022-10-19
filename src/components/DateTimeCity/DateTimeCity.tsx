@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Context } from '../../RootContainer';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 
 //Component/////////////////////////////////
 const DateTimeCity: React.FC = () => {
@@ -23,10 +23,10 @@ const DateTimeCity: React.FC = () => {
 
 	//react-query
 	const fetchData = () => {
-		axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${inputRef.current?.value}&appid=698a70a0d4734a6f8dc9a87e0aed884a`).then((data) => setApiData(data.data));
+		axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${inputRef.current?.value}&appid=698a70a0d4734a6f8dc9a87e0aed884a&units=metric`).then((data) => setApiData(data.data));
 	};
 	// console.log('apiData', apiData);
-	const { data, refetch, isFetching, isLoading, isError, error, isSuccess } = useQuery('weather', fetchData, { enabled: false });
+	const { data, refetch, isFetching, isLoading, isError, error, isSuccess } = useQuery<any, AxiosError>('weather', fetchData, { enabled: false });
 
 	if (isLoading) {
 		return <h1>loading.....</h1>;

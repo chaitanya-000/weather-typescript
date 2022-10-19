@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 export const Context = createContext<{
 	cityName: string | undefined;
 	setCityName: React.Dispatch<React.SetStateAction<string | undefined>>;
-	apiData: never[];
+	apiData: any;
 	setApiData: React.Dispatch<React.SetStateAction<never[]>>;
 }>({
 	cityName: undefined,

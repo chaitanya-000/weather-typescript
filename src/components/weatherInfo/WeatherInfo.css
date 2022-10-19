@@ -22,15 +22,15 @@
 	height: 50%;
 }
 .weatherInfoContainer--sunset div {
-	font-size: 3vh;
+	font-size: 2.5vh;
 }
 .weatherInfoContainer--currentTemp {
 	width: 28%;
 	height: 100%;
 	/* background-color: red; */
-	font-size: 5vw;
+	font-size: 2vw;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 }
