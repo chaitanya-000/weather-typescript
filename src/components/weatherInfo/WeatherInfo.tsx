@@ -5,26 +5,17 @@ import { Context } from '../../RootContainer';
 
 const WeatherInfo = () => {
 	const { cityName, setCityName, apiData, setApiData } = useContext(Context);
-	console.log(apiData);
 
 	const sunset = new Date(apiData?.sys?.sunset * 1000).toLocaleTimeString('en-US', {
 		hour: 'numeric',
 		minute: 'numeric',
 		hour12: true,
 	});
-	// console.log(sunset);
 
 	const temp = Math.round(apiData?.main?.temp);
 
-	const minTemp = apiData && apiData.weather && apiData.weather[0] && apiData.weather[0].description;
-	console.log(minTemp);
+	const minTemp = apiData && apiData.weather && apiData.weather[0] && apiData.weather[0].main;
 
-	navigator.geolocation.getCurrentPosition((position) => {
-		let lat = position.coords.latitude;
-		let long = position.coords.longitude;
-		console.log(lat);
-		console.log(long);
-	});
 	return (
 		<div className='weatherInfoContainer'>
 			<div className='weatherInfoContainer--sunset'>
@@ -35,11 +26,10 @@ const WeatherInfo = () => {
 				<div>{sunset}</div>
 			</div>
 
-			<div className='weatherInfoContainer-tempMin'>{minTemp}</div>
-
-			<div className='weatherInfoContainer--currentTemp'>
-				<div>{temp}°C</div>
+			<div className='weatherInfoContainer-Description'>
+				<div>{minTemp}</div>
 			</div>
+			<div className='weatherInfoContainer--currentTemp'>{temp}°C</div>
 		</div>
 	);
 };

@@ -1,10 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 .App {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Nunito Sans", sans-serif;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Nunito Sans', sans-serif;
+	background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/08/Best-Desktop-Wallpaper.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
