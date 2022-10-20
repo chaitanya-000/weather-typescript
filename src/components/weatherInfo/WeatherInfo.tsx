@@ -18,18 +18,17 @@ const WeatherInfo = () => {
 
 	return (
 		<div className='weatherInfoContainer'>
-			<div className='weatherInfoContainer--sunset'>
-				<img
-					src='https://cdn-icons-png.flaticon.com/512/2294/2294957.png'
-					alt=''
-				/>
-				<div>{sunset}</div>
-			</div>
+			{apiData.wind && (
+				<div className='weatherInfoContainer--sunset'>
+					<img src='https://cdn-icons-png.flaticon.com/512/2912/2912036.png' />
+					<div>{sunset}</div>
+				</div>
+			)}
 
+			{apiData.wind && <div className='weatherInfoContainer--currentTemp'>{temp}°C</div>}
 			<div className='weatherInfoContainer-Description'>
 				<div>{minTemp}</div>
 			</div>
-			<div className='weatherInfoContainer--currentTemp'>{temp}°C</div>
 		</div>
 	);
 };

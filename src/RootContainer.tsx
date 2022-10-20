@@ -30,7 +30,7 @@ const RootContainer = () => {
 	return (
 		<Context.Provider value={{ cityName, setCityName, apiData, setApiData }}>
 			<QueryClientProvider client={queryClient}>
-				<div className='rootContainer'>
+				<div className='rootContainer '>
 					<DateTimeCity />
 					<Image />
 					<WeatherInfo />

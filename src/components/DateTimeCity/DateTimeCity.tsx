@@ -46,6 +46,7 @@ const DateTimeCity: React.FC = () => {
 				})}{' '}
 				2022
 			</h2>
+			<h2>{new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</h2>
 			<form
 				action='#'
 				className='container__form'

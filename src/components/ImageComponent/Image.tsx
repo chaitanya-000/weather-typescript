@@ -9,7 +9,7 @@ const Image = () => {
 	const { cityName, setCityName, apiData, setApiData } = useContext(Context);
 
 	let weather = apiData && apiData.weather && apiData.weather[0] && apiData.weather[0].main;
-	console.log(`*****************`, weather);
+	console.log(apiData);
 
 	return (
 		<div className='ImageContainer'>
@@ -24,7 +24,7 @@ const Image = () => {
 			{weather === 'Haze' && (
 				<img
 					className='ImageContainer--image'
-					src='https://png.pngtree.com/png-vector/20210805/ourmid/pngtree-3d-cloud-illustration-vector-png-image_3780086.jpg'
+					src='https://img.freepik.com/free-vector/waiting-rain-concept-illustration_114360-7064.jpg?w=1380&t=st=1666247838~exp=1666248438~hmac=edafc81ac2c2d94174ee457a7446a11ae63fd161b4dc4f718b90b67c7c3c448f'
 					alt=''
 				/>
 			)}
